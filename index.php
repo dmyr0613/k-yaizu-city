@@ -99,7 +99,7 @@ foreach ($events as $event) {
   } elseif($SectionName == '休日当番医') {
     //リッチメニューから「休日当番医」
     $messageStr = '休日当番医：';
-    $messageStr = $messageStr . "\r\n" . 'https://www.city.yaizu.lg.jp/g03-002/zeishoumei.html';
+    $messageStr = $messageStr . "\r\n" . 'https://www.city.yaizu.lg.jp/99/index.html';
     $bot->replyText($event->getReplyToken(), $messageStr);
 
   } elseif($SectionName == '子育て') {
