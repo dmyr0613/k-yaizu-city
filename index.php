@@ -49,10 +49,13 @@ foreach ($events as $event) {
     $messageStr = $messageStr . "\r\n";
     $messageStr = $messageStr . "\r\n" . '〇窓口請求：';
     $messageStr = $messageStr . "\r\n" . 'https://www.city.yaizu.lg.jp/g03-002/g01-001.html';
+    $messageStr = $messageStr . "\r\n";
     $messageStr = $messageStr . "\r\n" . '〇郵便請求：';
     $messageStr = $messageStr . "\r\n" . 'https://www.city.yaizu.lg.jp/g03-002/yubinseikyu.html';
+    $messageStr = $messageStr . "\r\n";
     $messageStr = $messageStr . "\r\n" . '〇土日祝日（自動交付機）：';
     $messageStr = $messageStr . "\r\n" . 'https://www.city.yaizu.lg.jp/g03-002/j01-001.html';
+    $messageStr = $messageStr . "\r\n";
     $messageStr = $messageStr . "\r\n" . '〇土日祝日（コンビニ交付）：';
     $messageStr = $messageStr . "\r\n" . 'https://www.city.yaizu.lg.jp/g03-002/konbinikouhu.html';
     $bot->replyText($event->getReplyToken(), $messageStr);
@@ -63,6 +66,7 @@ foreach ($events as $event) {
     $messageStr = $messageStr . "\r\n";
     $messageStr = $messageStr . "\r\n" . '〇窓口請求：';
     $messageStr = $messageStr . "\r\n" . 'https://www.city.yaizu.lg.jp/g03-002/g01-001.html';
+    $messageStr = $messageStr . "\r\n";
     $messageStr = $messageStr . "\r\n" . '〇郵便請求：';
     $messageStr = $messageStr . "\r\n" . 'https://www.city.yaizu.lg.jp/g03-002/yubinseikyu.html';
     $bot->replyText($event->getReplyToken(), $messageStr);
