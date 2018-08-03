@@ -116,6 +116,7 @@ foreach ($events as $event) {
 
   } else {
     //リッチメニューから「手続き・申請」
+    /*
     //$suggestArray = array('住民票','戸籍証明書','印鑑証明','税関係証明書','その他手続き・申請');
     $suggestArray = array('住民票','戸籍証明書','印鑑証明','税関係証明書');
     $actionArray = array();
@@ -126,8 +127,32 @@ foreach ($events as $event) {
     // Buttonsテンプレートを返信
     $builder = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder(
       '証明書選択',
-      new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder ('証明書を選択してください。', '証明書を選択してください。', null, $actionArray));
+      new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder ('手続き・申請', '証明書を選択してください。', null, $actionArray));
       $bot->replyMessage($event->getReplyToken(), $builder);
+    */
+
+    // Carouselテンプレートメッセージを返信
+    // ダイアログの配列
+    $columnArray = array();
+    // CarouselColumnTemplateBuilderの引数はタイトル、本文、
+    // 画像URL、アクションの配列
+    $column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder (
+      '手続き・申請', '証明書を選択してください。', null,
+      '住民票','戸籍証明書','印鑑証明'
+    );
+    // 配列に追加
+    array_push($columnArray, $column);
+
+    // 画像URL、アクションの配列
+    $column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder (
+      '手続き・申請', '証明書を選択してください。', null,
+      '税関係証明書','その他手続き・申請','その他'
+    );
+    // 配列に追加
+    array_push($columnArray, $column);
+
+    replyCarouselTemplate($bot, $event->getReplyToken(),'手続き・申請', $columnArray);
+
   }
 }
 
