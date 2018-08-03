@@ -138,9 +138,9 @@ foreach ($events as $event) {
     // 画像URL、アクションの配列
 
     $actionArray = array();
-    array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder ('住民票'));
-    array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder ('戸籍証明書'));
-    array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder ('印鑑証明'));
+    array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder ('住民票','住民票'));
+    array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder ('戸籍証明書','戸籍証明書'));
+    array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder ('印鑑証明','印鑑証明'));
 
     $column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder (
       '手続き・申請', '証明書を選択してください。', null, $actionArray
@@ -148,11 +148,10 @@ foreach ($events as $event) {
     // 配列に追加
     array_push($columnArray, $column);
 
-    /*
     $actionArray = array();
-    array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder ('税関係証明書'));
-    array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder ('その他手続き・申請'));
-    array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder ('その他'));
+    array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder ('税関係証明書','税関係証明書'));
+    array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder ('その他手続き・申請','その他手続き・申請'));
+    array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder ('その他','その他'));
 
     // 画像URL、アクションの配列
     $column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder (
@@ -160,7 +159,6 @@ foreach ($events as $event) {
     );
     // 配列に追加
     array_push($columnArray, $column);
-    */
 
     replyCarouselTemplate($bot, $event->getReplyToken(),'手続き・申請', $columnArray);
 
