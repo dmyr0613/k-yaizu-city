@@ -136,17 +136,32 @@ foreach ($events as $event) {
     $columnArray = array();
     // CarouselColumnTemplateBuilderの引数はタイトル、本文、
     // 画像URL、アクションの配列
+
+    $actionArray = array();
+    array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder (
+      '住民票'));
+    array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder (
+      '戸籍証明書'));
+    array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder (
+      '印鑑証明'));
+
     $column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder (
-      '手続き・申請', '証明書を選択してください。', null,
-      '住民票','戸籍証明書','印鑑証明'
+      '手続き・申請', '証明書を選択してください。', null, $actionArray
     );
     // 配列に追加
     array_push($columnArray, $column);
 
-    // 画像URL、アクションの配列
+    $actionArray = array();
+    array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder (
+      '税関係証明書'));
+    array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder (
+      'その他手続き・申請'));
+    array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder (
+      'その他'));
+
+          // 画像URL、アクションの配列
     $column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder (
-      '手続き・申請', '証明書を選択してください。', null,
-      '税関係証明書','その他手続き・申請','その他'
+      '手続き・申請', '証明書を選択してください。', null, $actionArray
     );
     // 配列に追加
     array_push($columnArray, $column);
