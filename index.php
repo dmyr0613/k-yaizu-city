@@ -116,7 +116,7 @@ foreach ($events as $event) {
 
   } else {
     //リッチメニューから「手続き・申請」
-    $suggestArray = array('住民票','戸籍証明書','印鑑証明','税関係証明書');
+    $suggestArray = array('住民票','戸籍証明書','印鑑証明','税関係証明書','その他手続き・申請');
     $actionArray = array();
     //候補を全てアクションにして追加
     foreach($suggestArray as $secname) {
