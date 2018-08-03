@@ -96,6 +96,26 @@ foreach ($events as $event) {
     $messageStr = $messageStr . "\r\n" . 'https://www.city.yaizu.lg.jp/g03-002/konbinikouhu.html';
     $bot->replyText($event->getReplyToken(), $messageStr);
 
+  } elseif($SectionName == 'その他手続き・申請') {
+    //リッチメニューから「その他手続き・申請」
+    $messageStr = 'その他の手続き・申請書をご案内します。';
+    $messageStr = $messageStr . "\r\n";
+    $messageStr = $messageStr . "\r\n" . '〇手続き・申請全般：';
+    $messageStr = $messageStr . "\r\n" . 'https://www.city.yaizu.lg.jp/benri/shinsei.html';
+    $messageStr = $messageStr . "\r\n";
+    $messageStr = $messageStr . "\r\n" . '〇妊娠・出産：';
+    $messageStr = $messageStr . "\r\n" . 'https://www.city.yaizu.lg.jp/benri/shussan.html';
+    $messageStr = $messageStr . "\r\n";
+    $messageStr = $messageStr . "\r\n" . '〇結婚・離婚：';
+    $messageStr = $messageStr . "\r\n" . 'https://www.city.yaizu.lg.jp/benri/kekkon.html';
+    $messageStr = $messageStr . "\r\n";
+    $messageStr = $messageStr . "\r\n" . '〇引越し・住まい：';
+    $messageStr = $messageStr . "\r\n" . 'https://www.city.yaizu.lg.jp/benri/sumai.html';
+    $messageStr = $messageStr . "\r\n";
+    $messageStr = $messageStr . "\r\n" . '〇おくやみ：';
+    $messageStr = $messageStr . "\r\n" . 'https://www.city.yaizu.lg.jp/benri/okuyami.html';
+    $bot->replyText($event->getReplyToken(), $messageStr);
+
   } elseif($SectionName == '休日当番医') {
     //リッチメニューから「休日当番医」
     $messageStr = '休日当番医：';
@@ -131,32 +151,31 @@ foreach ($events as $event) {
       $bot->replyMessage($event->getReplyToken(), $builder);
     */
 
+    //ButtonTemplateBuilderは選択が4つまでの為、CarouselColumnTemplateBuilderに変更。
+    //CarouselColumnTemplateBuilderは、Column5つまで、各Columnのボタンは3つまで
+
     // Carouselテンプレートメッセージを返信
     // ダイアログの配列
     $columnArray = array();
-    // CarouselColumnTemplateBuilderの引数はタイトル、本文、
-    // 画像URL、アクションの配列
 
+    //1列目
     $actionArray = array();
     array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder ('住民票','住民票'));
     array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder ('戸籍証明書','戸籍証明書'));
     array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder ('印鑑証明','印鑑証明'));
-
     $column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder (
-      '手続き・申請', '証明書を選択してください。', null, $actionArray
-    );
+      '手続き・申請', '証明書を選択してください。', null, $actionArray);
     // 配列に追加
     array_push($columnArray, $column);
 
+    //2列目
     $actionArray = array();
     array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder ('税関係証明書','税関係証明書'));
     array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder ('その他手続き・申請','その他手続き・申請'));
-    array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder ('その他','その他'));
-
+    //array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder ('その他','その他'));
     // 画像URL、アクションの配列
     $column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder (
-      '手続き・申請', '証明書を選択してください。', null, $actionArray
-    );
+      '手続き・申請', '証明書を選択してください。', null, $actionArray);
     // 配列に追加
     array_push($columnArray, $column);
 
