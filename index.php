@@ -172,7 +172,8 @@ foreach ($events as $event) {
     $actionArray = array();
     array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder ('税関係証明書','税関係証明書'));
     array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder ('その他手続き・申請','その他手続き・申請'));
-    array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder ('その他','その他'));
+    //array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder ('その他','その他'));
+    array_push($actionArray, new LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder ('',''));
     // 画像URL、アクションの配列
     $column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder (
       '手続き・申請', '証明書を選択してください。', null, $actionArray);
