@@ -71,6 +71,49 @@ foreach ($events as $event) {
     $messageStr = $messageStr . "\r\n" . 'https://www.city.yaizu.lg.jp/g03-002/yubinseikyu.html';
     $bot->replyText($event->getReplyToken(), $messageStr);
 
+  } elseif($SectionName == '印鑑証明') {
+    //リッチメニューから「印鑑証明」
+    $messageStr = '印鑑証明書の各種請求方法をご案内します。';
+    $messageStr = $messageStr . "\r\n";
+    $messageStr = $messageStr . "\r\n" . '〇窓口請求：';
+    $messageStr = $messageStr . "\r\n" . 'https://www.city.yaizu.lg.jp/g03-002/h01-005.html';
+    $messageStr = $messageStr . "\r\n";
+    $messageStr = $messageStr . "\r\n" . '〇土日祝日（自動交付機）：';
+    $messageStr = $messageStr . "\r\n" . 'https://www.city.yaizu.lg.jp/g03-002/j01-001.html';
+    $messageStr = $messageStr . "\r\n";
+    $messageStr = $messageStr . "\r\n" . '〇土日祝日（コンビニ交付）：';
+    $messageStr = $messageStr . "\r\n" . 'https://www.city.yaizu.lg.jp/g03-002/konbinikouhu.html';
+    $bot->replyText($event->getReplyToken(), $messageStr);
+
+  } elseif($SectionName == '税関係証明書') {
+    //リッチメニューから「税関係証明書」
+    $messageStr = '税証明書の各種請求方法をご案内します。';
+    $messageStr = $messageStr . "\r\n";
+    $messageStr = $messageStr . "\r\n" . '〇窓口請求：';
+    $messageStr = $messageStr . "\r\n" . 'https://www.city.yaizu.lg.jp/g03-002/zeishoumei.html';
+    $messageStr = $messageStr . "\r\n";
+    $messageStr = $messageStr . "\r\n" . '〇土日祝日（コンビニ交付）：';
+    $messageStr = $messageStr . "\r\n" . 'https://www.city.yaizu.lg.jp/g03-002/konbinikouhu.html';
+    $bot->replyText($event->getReplyToken(), $messageStr);
+
+  } elseif($SectionName == '休日当番医') {
+    //リッチメニューから「休日当番医」
+    $messageStr = '休日当番医：';
+    $messageStr = $messageStr . "\r\n" . 'https://www.city.yaizu.lg.jp/g03-002/zeishoumei.html';
+    $bot->replyText($event->getReplyToken(), $messageStr);
+
+  } elseif($SectionName == '子育て') {
+    //リッチメニューから「子育て」
+    $messageStr = '子育て：';
+    $messageStr = $messageStr . "\r\n" . 'https://www.city.yaizu.lg.jp/kosodate/index.html';
+    $bot->replyText($event->getReplyToken(), $messageStr);
+
+  } elseif($SectionName == 'ごみの日') {
+    //リッチメニューから「ごみの日」
+    $messageStr = 'ごみの日：';
+    $messageStr = $messageStr . "\r\n" . 'http://www.city.yaizu.lg.jp/5374/jp/';
+    $bot->replyText($event->getReplyToken(), $messageStr);
+
   } else {
     //リッチメニューから「手続き・申請」
     $suggestArray = array('住民票','戸籍証明書','印鑑証明','税関係証明書');
